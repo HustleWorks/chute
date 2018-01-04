@@ -22,14 +22,5 @@
   },
   "config": {
     "sort-packages": true
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "HustleWorks\\Chute\\ChuteServiceProvider"
-      ],
-      "aliases": {
-      }
-    }
   }
 }
