@@ -1,6 +1,6 @@
 <p align="left">
 <a href="https://travis-ci.org/HustleWorks/chute"><img src="https://travis-ci.org/HustleWorks/chute.svg" alt="Build Status"></a>
-<a href="LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="License"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="License"></a>
 </p>
 
 ## About Chute
