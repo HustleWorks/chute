@@ -1,3 +1,7 @@
+<p align="left">
+<a href="https://travis-ci.org/HustleWorks/chute"><img src="https://travis-ci.org/HustleWorks/chute.svg" alt="Build Status"></a>
+</p>
+
 ## About Chute
 
 Todo.
