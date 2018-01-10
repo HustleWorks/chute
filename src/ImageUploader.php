@@ -68,8 +68,8 @@ abstract class ImageUploader
                 $this->image_repo->delete($record);
             }
 
-            $record = $model->storeImageRecord([
-                'name'        => $name,
+            $record = $this->image_repo->create([
+                'name'        => $config->image_name,
                 'disk'        => $config->temp_disk,
                 'filename'    => $image_file->filename,
                 'path'        => $config->directory,
