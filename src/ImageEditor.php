@@ -17,7 +17,7 @@ class ImageEditor implements ImageEditingInterface
     /**
      * @var int
      */
-    private $quality;
+    private $quality = 100;
 
     /**
      * ImageEditor constructor.

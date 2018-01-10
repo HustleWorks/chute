@@ -50,18 +50,4 @@ class ImageRecord extends TransferObject
     protected $description;
     protected $updated_at;
     protected $created_at;
-
-    /**
-     * ImageRecord constructor.
-     *
-     * @param array $attributes
-     */
-    public function __construct(array $attributes)
-    {
-        parent::__construct();
-
-        foreach ($attributes as $key => $value) {
-            $this->$key = $value;
-        }
-    }
 }

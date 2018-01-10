@@ -40,18 +40,4 @@ class ImageTransformationRecord extends TransferObject
     protected $height;
     protected $updated_at;
     protected $created_at;
-
-    /**
-     * ImageTransformationRecord constructor.
-     *
-     * @param array $attributes
-     */
-    public function __construct(array $attributes)
-    {
-        parent::__construct();
-
-        foreach ($attributes as $key => $value) {
-            $this->$key = $value;
-        }
-    }
 }
