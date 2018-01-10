@@ -6,7 +6,7 @@ use HustleWorks\Chute\DTO\ImageConfiguration;
 use HustleWorks\Chute\Contracts\ImageValidatorInterface;
 use HustleWorks\Chute\Contracts\ImageRepositoryInterface;
 use HustleWorks\Chute\Contracts\StorageInterface;
-use HustleWorks\Chute\ImageFile;
+use HustleWorks\Chute\DTO\ImageFile;
 use HustleWorks\Chute\ServiceResponse;
 use HustleWorks\Chute\StandardServiceResponse;
 
@@ -68,24 +68,23 @@ abstract class ImageUploader
                 $this->image_repo->delete($record);
             }
 
-            $record = $this->image_repo->create([
-                    'name'        => $config->image_name,
-                    'disk'        => $config->temp_disk,
-                    'filename'    => $image_file->filename(),
-                    'path'        => $config->directory,
-                    'status'      => 'pending',
-                    'width'       => $image_file->width(),
-                    'height'      => $image_file->height(),
-                    'mime_type'   => $image_file->mimeType(),
-                    'extension'   => $image_file->extension(),
-                    'size'        => $image_file->size(),
-                    'alt'         => $optional_data['alt'] ?? null,
-                    'title'       => $optional_data['title'] ?? null,
-                    'description' => $optional_data['description'] ?? null,
-                ] +
-                $config->optional_data
-            );
-            $this->storage->put($image_file->stream(), $record->disk, "$record->path/$record->uuid", $record->filename);
+            $record = $model->storeImageRecord([
+                'name'        => $name,
+                'disk'        => $config->temp_disk,
+                'filename'    => $image_file->filename,
+                'path'        => $config->directory,
+                'status'      => 'pending',
+                'width'       => $image_file->width,
+                'height'      => $image_file->height,
+                'mime_type'   => $image_file->mime_type,
+                'extension'   => $image_file->extension,
+                'size'        => $image_file->size,
+                'alt'         => $optional_data['alt'] ?? null,
+                'title'       => $optional_data['title'] ?? null,
+                'description' => $optional_data['description'] ?? null,
+            ]);
+
+            $this->storage->put($image_file->stream, $record->disk, "$record->path/$record->uuid", $record->filename);
             $response = new StandardServiceResponse(true, [
                 'image' => $record,
             ], 'File successfully uploaded');
