@@ -3,8 +3,8 @@
 
 namespace HustleWorks\Chute\Contracts;
 
+use HustleWorks\Chute\DTO\ImageFile;
 use HustleWorks\Chute\DTO\ImageRuleConfiguration;
-use HustleWorks\Chute\ImageFile;
 use HustleWorks\Chute\ServiceResponse;
 
 interface ImageValidatorInterface
